@@ -8,11 +8,11 @@
 
 ## Work experience
 - 1991-2000 Biochemistry - Molecular biology - various academic labs
-    -- France : Besançon Dijon
-    -- UK : Biology Dept Royal Holloway College, Univ of London, Egham - Surrey (PhD) - Prof JR Bowyer
-    -- USA 95-97 : Biology dept, University of Florida, Gainesville - Prof GW Bowes
-    -- DK 97-98 : Biochemistry dept, Odense University
-    -- France 98-00 : Biology Lab University of Bordeaux
+    - France : Besançon Dijon
+    - UK : Biology Dept Royal Holloway College, Univ of London, Egham - Surrey (PhD) - Prof JR Bowyer
+    - USA 95-97 : Biology dept, University of Florida, Gainesville - Prof GW Bowes
+    - DK 97-98 : Biochemistry dept, Odense University
+    - France 98-00 : Biology Lab University of Bordeaux
 - 2001 Bioinformatics Master at University Bordeaux, Bioinformatics Unit
 - 2002-2003 Bionformatics Engineer - University Bordeaux
 - 2003-2005 
