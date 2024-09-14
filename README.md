@@ -1,10 +1,10 @@
 # Data Scientist
 
 ## Education
-1995 PhD Biology -Royal Holloway University of London
-2001 Master Bioinformatics University of Bordeaux
-2023 Several Data science certifications
-2024 Data Science Bootcamp (June-July) Remote Le Wagon
+- 1995 PhD Biology -Royal Holloway University of London
+- 2001 Master Bioinformatics University of Bordeaux
+- 2023 Several Data science certifications
+- 2024 Data Science Bootcamp (June-July) Remote Le Wagon
 
 ## Work experience
 - 1991-2000 Biochemistry - Molecular biology - various academic labs
