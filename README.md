@@ -16,3 +16,6 @@
 - 2001 Bioinformatics Master at University Bordeaux, Bioinformatics Unit
 - 2002-2003 Bionformatics Engineer - University Bordeaux
 - 2003-2005 
+
+
+![Noel Magnin's GitHub stats](https://github-readme-stats.vercel.app/api?username=noel-magnin&show_icons=true&theme=transparent)
