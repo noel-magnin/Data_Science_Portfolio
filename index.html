@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Data Science - Noel Magnin</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .skills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .project-card h3 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 2rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-item {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Noel Magnin</h1>
+            <p class="subtitle">Data Scientist | Plant Biologist | Computational Biologist</p>
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">R</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Bioinformatics</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Cloud (Azure, GCP, AWS)</span>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>📊 Statistiques du Portfolio</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Années d'Expérience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projets Complétés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Publications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Technologies Maîtrisées</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔬 Domaines d'Expertise</h2>
+            <div class="chart-container">
+                <canvas id="expertiseChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💼 Projets Phares</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🌱 Precision Agriculture ML</h3>
+                    <p>Développement de pipelines ML pour l'agriculture de précision chez Ecorobotix. Analyse de données environnementales et prédictions agronomiques.</p>
+                    <p style="margin-top: 1rem;"><strong>Tech:</strong> Python, TensorFlow, GIS</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🧬 Microbiome Analysis</h3>
+                    <p>Analyse NGS et microbiome avec QIIME à INRAE Bordeaux. Étude des interactions plante-sol et pathogènes.</p>
+                    <p style="margin-top: 1rem;"><strong>Tech:</strong> R, QIIME, Bioinformatics</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🌍 Environmental Epidemiology</h3>
+                    <p>Pipelines ML pour l'épidémiologie environnementale et visualisation de données météorologiques chez Platform Garden.</p>
+                    <p style="margin-top: 1rem;"><strong>Tech:</strong> Python, Azure, ML</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>🔬 LIMS Implementation</h3>
+                    <p>Implémentation de système LIMS au CHU Bordeaux pour la gestion et l'analyse de données laboratoire.</p>
+                    <p style="margin-top: 1rem;"><strong>Tech:</strong> SQL, Database Management</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Stack Technique</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <strong>Python</strong><br>
+                    Pandas, NumPy, Scikit-learn
+                </div>
+                <div class="tech-item">
+                    <strong>R</strong><br>
+                    Tidyverse, ggplot2
+                </div>
+                <div class="tech-item">
+                    <strong>ML/DL</strong><br>
+                    TensorFlow, PyTorch
+                </div>
+                <div class="tech-item">
+                    <strong>Cloud</strong><br>
+                    Azure, GCP, AWS
+                </div>
+                <div class="tech-item">
+                    <strong>Databases</strong><br>
+                    SQL, PostgreSQL
+                </div>
+                <div class="tech-item">
+                    <strong>Bio-tools</strong><br>
+                    QIIME, Bioconductor
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Tendances des Projets</h2>
+            <div class="chart-container">
+                <canvas id="projectsChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📞 Contact</h2>
+            <p>🌐 <a href="https://github.com/noel-magnin" target="_blank">GitHub</a></p>
+            <p>📧 Email: noel.magnin@example.com</p>
+            <p>📍 Localisation: Bordeaux, France</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Noel Magnin - Data Science Portfolio | Créé avec passion pour la science des données</p>
+    </footer>
+
+    <script>
+        // Chart 1: Expertise domains
+        const expertiseCtx = document.getElementById('expertiseChart').getContext('2d');
+        new Chart(expertiseCtx, {
+            type: 'radar',
+            data: {
+                labels: ['Machine Learning', 'Bioinformatics', 'Data Visualization', 'Statistics', 'Cloud Computing', 'Database Management'],
+                datasets: [{
+                    label: 'Niveau d\'Expertise',
+                    data: [90, 95, 85, 90, 80, 85],
+                    backgroundColor: 'rgba(102, 126, 234, 0.2)',
+                    borderColor: 'rgba(102, 126, 234, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(118, 75, 162, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(118, 75, 162, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Chart 2: Projects timeline
+        const projectsCtx = document.getElementById('projectsChart').getContext('2d');
+        new Chart(projectsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'Projets Data Science',
+                    data: [2, 3, 4, 5, 6, 7],
+                    backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                    borderColor: 'rgba(102, 126, 234, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'Projets Bioinformatique',
+                    data: [3, 2, 3, 4, 3, 4],
+                    backgroundColor: 'rgba(118, 75, 162, 0.8)',
+                    borderColor: 'rgba(118, 75, 162, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
